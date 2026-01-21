@@ -1,0 +1,61 @@
+# https://packaging.python.org/ja/latest/guides/writing-pyproject-toml/
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools", "setuptools-scm", "Cython"]
+
+[project]
+authors = [
+  {name = "tomosatoP"},
+  {email = "no.mail@gmail.com"},
+]
+classifiers = [
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Cython",
+  "Operating System :: POSIX :: Linux",
+  "Natural Language :: Japanese",
+]
+dependencies = [
+  "Kivy[base]~=2.3",
+]
+description = "デレステ譜面ファイル作成アプリ"
+dynamic = ["version"]
+keywords = ["ffmpeg", "デレステ譜面"]
+license-files = ["LICEN[CS]E.*"]
+name = "derenotes"
+readme = "README.md"
+requires-python = "~=3.12"
+
+[project.urls]
+Documentation = "https://tomosatop.github.io/derenotes"
+Repository = "https://github.com/tomosatoP/derenotes.git"
+
+[project.optional-dependencies]
+dev = [
+  "build",
+  "Cython",
+  "mypy",
+  "ruff",
+  "Sphinx",
+  "coverage",
+]
+
+[tool.setuptools.packages.find]
+include = ["derenotes*"]
+
+[tool.mypy]
+# https://mypy.readthedocs.io/en/stable/config_file.html
+# VSCode拡張機能 "Mypy Type Checker"
+python_version = "3.12"
+ignore_missing_imports = true # 解決できないインポートに関するエラーメッセージを抑制
+disallow_untyped_defs = true  # 関数定義の引数/戻り値に型アノテーション必須
+check_untyped_defs = true     # 型注釈がない関数やメソッドに対して型チェックを行う
+warn_redundant_casts = true   # 冗長なキャストに警告
+
+[tool.ruff]
+# https://docs.astral.sh/ruff/configuration/
+# VSCode拡張機能 "Ruff"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I",]
+ignore =["I001",]
