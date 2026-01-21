@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Icon LONG FLICK RIGHT -->
+
+<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+  <symbol id="BACK" viewBox="-50 -50 100 100"> 
+    <path
+      d="M0,45
+        A45,45 0 0 1 0,-45
+        C30,-45 50,0 50,0
+        C50,0 30,45 0,45
+        Z"
+      fill="black"
+      stroke="none"
+    />
+  </symbol>
+
+  <symbol id="STROKE" viewBox="-50 -50 100 100">
+    <path 
+      d="M0,43
+      A43,43 0 0 1 0,-43
+      C29,-43 48,1 48,0
+      C48,-1 29,43 0,43
+      Z"
+      fill="none"
+      stroke="white"
+      stroke-width="4"
+    />
+  </symbol>
+
+  <symbol id="INTERIOR" viewBox="-50 -50 100 100" >
+    <path
+      d="M0,37
+        A37,37 0 0 1 0,-37
+        C24,-37 41,0 42,0
+        C41,0 24,37 0,37
+        Z"
+      fill="royalblue"
+      stroke="none"
+    />
+  </symbol>
+
+  <symbol id="ARROW" viewBox="-50 -50 100 100">
+    <polygon points="0,0 -10,-30 0,-30 10,0 0,30 -10,30" />
+  </symbol>
+
+  <rect x="5" y="50" width="90" height="50" fill="gray" />
+
+  <use href="#BACK" />
+  <use href="#STROKE" />
+  <use href="#INTERIOR" />
+  <use href="#ARROW" transform="translate(-5)" />
+  <use href="#ARROW" transform="translate(15)" />
+
+</svg>

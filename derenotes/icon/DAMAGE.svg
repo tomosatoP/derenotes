@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Icon DAMAGE -->
+
+<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+  <symbol id="DAMAGE" viewBox="-50 -50 100 100"> 
+
+    <rect x="-33" y="-33" width="66" height="66" fill="gray"/>
+    <rect x="-25" y="-25" width="50" height="50" fill="gold"/>
+
+  </symbol>
+
+  <use href="#DAMAGE" transform="rotate(45 50 50)"/>
+
+  <polygon points="50,20 60,40 80,50 60,60 50,80 40,60 20,50 40,40" fill="black" />
+
+</svg>
