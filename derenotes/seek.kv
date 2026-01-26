@@ -1,0 +1,43 @@
+#:kivy 2.3.0
+#:set default_font_size sp(20)
+
+# for seek.py
+
+# シークバー（スライダー）
+# SeekBar@BoxLayout
+<SeekBar>:
+    slider: slider
+    elapsedtime: elapsedtime
+
+    orientation: "horizontal"
+
+    canvas.before:
+        Color:
+            rgb: 0.2, 0.2, 0.2
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_x: 30
+    
+        Label:
+            text: str(int(slider.value)) + "/" + str(int(slider.max)) + " frames"
+
+        Label:
+            id: elapsedtime
+            text: "0.00 秒"
+
+    Slider:
+        id: slider
+        
+        size_hint_x: 70
+        step: 1
+        orientation: "horizontal"
+
+# シークパネル（複数のボタン）
+# SeekPanel@BoxLayout
+<SeekPanel>:
+    orientation: "horizontal"
+

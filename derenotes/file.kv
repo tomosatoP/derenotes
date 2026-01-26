@@ -1,0 +1,289 @@
+#:kivy 2.3.0
+#:set default_font_size sp(20)
+
+# for file.py
+
+# デレステ譜面ファイル情報表示ウィジット。
+<FileView>
+    title: title
+    category: category
+    type: type
+    level: level
+
+    orientation: "horizontal"
+
+    # ナビゲーションドロワーを呼び出す。
+    # 新規作成・開く・保存・名前を付けて保存・閉じる
+    Button:
+        size_hint_x: 10
+        text: "♪♪"
+        on_release: root.navigation()
+
+    # 譜面情報（title, category, type, level）の表示・編集。
+    BoxLayout:
+        size_hint_x: 90
+ 
+        Label:
+            id: title
+            size_hint_x: 50
+            text: "タイトル"
+
+        BoxLayout:
+            size_hint_x: 40
+
+            Label:
+                id: category
+                text: "カテゴリ"
+
+            Label:
+                id: type
+                text: "タイプ"
+
+            Label:
+                id: level
+                text: "レベル"
+
+        # 表示と編集の切替。
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_x: 10
+            
+            ToggleButton:
+                group: "editable"
+                text: "編集"
+
+            ToggleButton:
+                group: "editable"
+                text: "表示"
+                state: "down"
+
+# ナビゲーションドロワー@BoxLayoutに割り付けるボタン
+<FileHandleButton@Button>
+    on_release: app.root.fileview.handler(self)
+
+
+# 背景色付きラベル
+<ColorLabel@Label>
+    canvas.before:
+        Color:
+            rgb: 0.2, 0.2, 0.2
+        Rectangle:
+            size: self.size
+            pos: self.pos 
+
+# 情報（key, value）の表示欄
+<InfoLabel@BoxLayout>
+    key: key
+    value: value
+
+    orientation: "horizontal"
+
+    ColorLabel:
+        id: key
+        size_hint_x: 30
+        
+        text: "key"
+
+    Label:
+        id: value
+        size_hint_x: 70
+
+        text: "value"
+
+# デレステ譜面ファイル選択のダイアログ(ポップアップ)
+<LoadChartDialog>
+    filechooser: filechooser
+    fileinfo: fileinfo
+    load_button: load_button
+
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+
+        FileChooser:
+            id: filechooser
+
+            size_hint_y: 70
+            rootpath: "folder"
+            filters: ["*.extention"]
+            on_selection: root.view(filechooser.path, filechooser.selection[0])
+
+            FileChooserListLayout:
+            FileChooserIconLayout:
+
+        BoxLayout:
+            size_hint_y: 5
+            orientation: "horizontal"
+            Button:
+                text: "icon"
+                on_press: filechooser.view_mode = 'icon'
+            Button:
+                text: "list"
+                on_press: filechooser.view_mode = 'list'
+
+        BoxLayout:
+            id: fileinfo
+
+            size_hint_y: 20
+            orientation: "vertical"
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 5
+
+            Button:
+                text: "キャンセル"
+                on_release: root.cancel()
+            
+            Button:
+                id: load_button
+                disabled: True
+                text: "開く"
+                on_release: root.load(filechooser.path, filechooser.selection[0])
+
+
+# デレステ譜面ファイル楽曲情報入力ウィジット
+# NewChartDialogに表示される
+<SongBoxLayout@BoxLayout>
+    name: name
+    category: category
+    type: type
+    level: level
+
+    orientation: "vertical"
+
+    TextInput:
+        id: name
+
+        multiline: False
+        write_tab: False
+        focus_next: level
+        text: "新しい楽曲"
+    
+    Spinner:
+        id: category
+
+    Spinner:
+        id: type
+    
+    TextInput:
+        id: level
+
+        multiline: False
+        write_tab: False
+        focus_next: name
+        text: "1"
+
+
+# デレステ譜面ファイル新規作成のダイアログ(ポップアップ)
+<NewChartDialog>
+    filechooser: filechooser
+    fileinfo: fileinfo
+    video_frame: video_frame
+    load_button: load_button
+
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+
+        FileChooser:
+            id: filechooser
+
+            size_hint_y: 30
+            rootpath: "folder"
+            filters: ["*.extention"]
+            on_selection: root.view()
+
+            FileChooserListLayout:
+            FileChooserIconLayout:
+
+        BoxLayout:
+            size_hint_y: 5
+            orientation: "horizontal"
+            Button:
+                text: "icon"
+                on_press: filechooser.view_mode = 'icon'
+            Button:
+                text: "list"
+                on_press: filechooser.view_mode = 'list'
+
+        FrameView:
+            id: video_frame
+
+            size_hint_y: 30
+            # source: "icon/NoImage.png"
+
+        BoxLayout:
+
+            size_hint_y: 30
+            orientation: "horizontal"
+
+            BoxLayout:
+                size_hint_x: 30
+                orientation: "vertical"
+
+                ColorLabel:
+                    text: "name"
+                
+                ColorLabel:
+                    text: "category"
+
+                ColorLabel:
+                    text: "type"
+
+                ColorLabel:
+                    text: "level"
+
+            SongBoxLayout:
+                id: fileinfo
+ 
+                size_hint_x:70
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 5
+
+            Button:
+                text: "キャンセル"
+                on_release: root.cancel()
+            
+            Button:
+                id: load_button
+                disabled: True
+                text: "新規作成"
+                on_release: root.load(filechooser.path, filechooser.selection[0], fileinfo.name.text, fileinfo.category.text, fileinfo.type.text, fileinfo.level.text)
+
+
+# 名前を付けて譜面データファイル保存のダイアログ(ポップアップ)
+<SaveChartWithNameDialog>
+    name: name
+    load_button: load_button
+
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+
+        TextInput:
+            id: name
+
+            size_hint_y: 50
+            multiline: False
+            write_tab: False
+            text: "新しい楽曲.json"
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 50
+
+            Button:
+                text: "キャンセル"
+                on_release: root.cancel()
+
+            Button:
+                id: load_button
+
+                text: "保存"
+                on_release: root.load(name.text)

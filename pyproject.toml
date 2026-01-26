@@ -1,7 +1,7 @@
 # https://packaging.python.org/ja/latest/guides/writing-pyproject-toml/
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools", "setuptools-scm", "Cython"]
+requires = ["setuptools>=80", "setuptools-scm[simple]", "Cython"]
 
 [project]
 authors = [
@@ -16,6 +16,7 @@ classifiers = [
 ]
 dependencies = [
   "Kivy[base]~=2.3",
+  "numpy~=2.3",
 ]
 description = "デレステ譜面ファイル作成アプリ"
 dynamic = ["version"]

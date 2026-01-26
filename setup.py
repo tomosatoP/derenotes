@@ -1,6 +1,8 @@
 """
 ``libs.image.video`` モジュールをビルドするためのセットアップスクリプト。
 
+``pyproject.toml`` で指定されたビルドシステムにより実行される。
+
 :依存パッケージ: python3-dev, libavutil-dev, libavformat-dev, libavcodec-dev, libswscale-dev
 :ビルドコマンド: python3 setup.py build_ext --inplace
 """

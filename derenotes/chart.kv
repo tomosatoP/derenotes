@@ -1,0 +1,107 @@
+#:kivy 2.3.0
+#:set default_font_size sp(20)
+
+# for chart.py
+
+# NoteTypeToggleButtonの枠付き背景
+# _NoteImage@Image
+<_NoteImage>
+    notecolor: (1, 1, 1, 1)
+    canvas.before:
+        Color:
+            rgba: self.notecolor
+        Line:
+            width: 2
+            rectangle: self.x+3, self.y+8, self.width-6, self.height-16
+
+# ChartEdit@BoxLayout
+<ChartEdit>
+    currentnotes: currentnotes
+    lanes: lanes
+    totalnotes: totalnotes
+
+    orientation: "horizontal"
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_x: 10
+
+        Label:
+            text: "現在数"
+
+        Label:
+            id: currentnotes
+            
+            text: "--"
+
+    BoxLayout:
+        id: lanes
+
+        orientation: "horizontal"
+        size_hint_x: 80
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_x: 10
+
+        Label:
+            text: "全数"
+
+        Label:
+            id: totalnotes
+
+            text: "--"
+
+# ChartVeiwのレーン背景
+# LaneRelativeLayout@RelativeLayout
+<_LaneRelativeLayout>
+    centerlinecolor: (1, 1, 1, 1)
+    number: 1
+    canvas.before:
+        Color:
+            rgba: self.centerlinecolor
+        Line:
+            width: 2
+            points: 0, self.height / 2, self.width, self.height / 2
+        Line:
+            width: 1
+            points: 0, self.height, self.width, self.height
+        Line:
+            width: 1
+            points: 0, self.height / 4 , self.width, self.height / 4
+        Line:
+            width: 1
+            points: 0, self.height * 3 / 4 , self.width, self.height * 3 / 4
+
+# ChartView@BoxLayout
+<ChartView>
+    lanes: lanes
+
+    orientation: "horizontal"
+
+    BoxLayout:
+        size_hint_x: 10
+        orientation: "vertical"
+
+        Label:
+            text: "現在"
+
+    BoxLayout:
+        size_hint_x: 80
+        orientation: "vertical"
+
+        Label:
+            size_hint_y: 5
+
+        BoxLayout:
+            id: lanes
+
+            size_hint_y: 95
+            orientation: "horizontal"
+
+    BoxLayout:
+        size_hint_x: 10
+        orientation: "vertical"
+
+        Label:
+            text: "現在"

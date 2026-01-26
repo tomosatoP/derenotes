@@ -211,12 +211,12 @@ cdef class Stream:
             raise VIDEOError(f"{self.__class__.__name__} - avformat_open_input")
         
         if avformat_find_stream_info(self.format_context, NULL) < 0:
-            raise VIDEOError(f"{self.__class__.__name__} - avformat_fine_stream_info")
+            raise VIDEOError(f"{self.__class__.__name__} - avformat_find_stream_info")
 
         # setup AVCodecContext with AVCodec for best video stream
         self.best_stream_index = av_find_best_stream(self.format_context, AVMediaType.AVMEDIA_TYPE_VIDEO, -1, -1, &decodec, 0)
         if self.best_stream_index < 0:
-            raise VIDEOError(f"{self.__class__.__name__} - av_finde_best_stream")
+            raise VIDEOError(f"{self.__class__.__name__} - av_find_best_stream")
         
         self.stream = self.format_context.streams[self.best_stream_index]
 
@@ -452,7 +452,7 @@ cdef class Stream:
         | 範囲外の場合には、"黒"画面相当の画像フレーム（バッファ）を返す。
 
         :param int index: 画像フレームのインデックス
-        :param int nearby_frame: 近傍のキーフレームへの間隔（ ``GOP`` 単位）
+        :param int nearby_keyframe: 近傍のキーフレームへの間隔（ ``GOP`` 単位）
         :return: 近傍のキーフレームの画像フレーム（バッファ）
         :rtype: bytes
         """
@@ -906,7 +906,7 @@ cdef class _Plane:
         view.format = "BBB"
         # メモリ配列以内で、"product(shape) * itemsize"と一致させる
         # メモリ配列から余分に確保されている部分を除いた長さとする
-        # ただし、`liensize`は32の倍数規制となっているので、後から不要部分を削除する必要あり
+        # ただし、`linesize`は32の倍数規制となっているので、後から不要部分を削除する必要あり
         view.len = self.frame.entity.linesize[self.index] * self.frame.entity.height
         # 要素のサイズ（バイト数）
         view.itemsize = sizeof(uint8_t) * 3

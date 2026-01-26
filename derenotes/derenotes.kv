@@ -1,0 +1,58 @@
+#:kivy 2.3.0
+#:set default_font_size sp(20)
+
+#:include file.kv
+#:include chart.kv
+#:include seek.kv
+
+# ルートウィジット（app.rootでアクセスできる）
+<MainBoxLayout>:
+    fileview: fileview
+    preview: preview
+    seekbar: seekbar
+    seekpanel: seekpanel
+    chartedit: chartedit
+    notetypes: notetypes
+    chartview: chartview
+
+    orientation: "vertical"
+
+    # ファイルメニュー
+    FileView:
+        id: fileview
+        size_hint_y: 5
+
+    # プレビュー
+    FrameView:
+        id: preview
+        size_hint_y: 30
+
+    # シークバー
+    SeekBar:
+        id: seekbar
+        size_hint_y: 5
+        padding: 0, 2, 0, 0
+
+    # シークパネル（複数のボタン）
+    SeekPanel:
+        id: seekpanel
+        size_hint_y: 5
+        padding: 0, 2, 0, 0
+
+    # デレステ譜面：編集対象
+    ChartEdit:
+        id: chartedit
+        size_hint_y: 5
+        padding: 0, 2, 0, 0
+
+    # ノートタイプの選択
+    NoteTypesGridLayout:
+        id: notetypes
+        size_hint_y: 10
+        padding: 0, 2, 0, 0
+
+    # デレステ譜面
+    ChartView:
+        id: chartview
+        size_hint_y: 40
+        padding: 0, 2, 0, 0
