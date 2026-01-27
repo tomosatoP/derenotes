@@ -16,13 +16,13 @@ jobs:
     - name: Python
       uses: actions/setup-python@v6
       with:
-        python-version: "3.11"  # StrEnum は 3.11 で追加
+        python-version: "3.12"
   
     - name: Requirements
       run: |
         sudo apt install python3-dev libavutil-dev libavformat-dev libavcodec-dev libswscale-dev
         python -m pip install --upgrade pip
-        pip install -U setuptools build sphinx kivy cython
+        pip install -U setuptools build sphinx "kivy[base]" cython
         python -m build
         pip install .
 
