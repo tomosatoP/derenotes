@@ -15,8 +15,8 @@ jobs:
 
     - name: Python
       uses: actions/setup-python@v5
-        with:
-          python-version: "3.11" # StrEnum は 3.11 で追加された
+      with:
+        python-version: "3.11" # StrEnum は 3.11 で追加された
 
     - name: Install dependencies
       run: pip install Kivy Cython
