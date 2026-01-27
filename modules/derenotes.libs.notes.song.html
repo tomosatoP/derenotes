@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>derenotes.libs.notes.song module &#8212; derenotes 1.0.0 ドキュメント</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/nature.css?v=279e0f84" />
+    <script src="../_static/documentation_options.js?v=144c8c96"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="derenotes.libs.image namespace" href="derenotes.libs.image.html" />
+    <link rel="prev" title="derenotes.libs.notes namespace" href="derenotes.libs.notes.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="derenotes.libs.image.html" title="derenotes.libs.image namespace"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="derenotes.libs.notes.html" title="derenotes.libs.notes namespace"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">derenotes 1.0.0 ドキュメント</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="derenotes.libs.notes.html" accesskey="U">derenotes.libs.notes namespace</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">derenotes.libs.notes.song module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-derenotes.libs.notes.song">
+<span id="derenotes-libs-notes-song-module"></span><h1>derenotes.libs.notes.song module<a class="headerlink" href="#module-derenotes.libs.notes.song" title="Link to this heading">¶</a></h1>
+<p>デレステ譜面ファイルを扱うモジュール。</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SONGError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">SONGError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.SONGError" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>songのエラーハンドラ</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>args</strong> (<em>object</em>)</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongType">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">SongType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.SongType" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>デレステ楽曲タイプの列挙クラス。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongType.ALL">
+<span class="sig-name descname"><span class="pre">ALL</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ALL'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongType.ALL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongType.CUTE">
+<span class="sig-name descname"><span class="pre">CUTE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CUTE'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongType.CUTE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongType.COOL">
+<span class="sig-name descname"><span class="pre">COOL</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'COOL'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongType.COOL" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongType.PASSION">
+<span class="sig-name descname"><span class="pre">PASSION</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PASSION'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongType.PASSION" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">SongCategory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>デレステ楽曲カテゴリの列挙クラス。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory.WIDE_DEBUT">
+<span class="sig-name descname"><span class="pre">WIDE_DEBUT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WIDE:DEBUT'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory.WIDE_DEBUT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory.WIDE_REGULAR">
+<span class="sig-name descname"><span class="pre">WIDE_REGULAR</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WIDE:REGULAR'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory.WIDE_REGULAR" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory.WIDE_PRO">
+<span class="sig-name descname"><span class="pre">WIDE_PRO</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WIDE:PRO'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory.WIDE_PRO" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory.WIDE_MASTER">
+<span class="sig-name descname"><span class="pre">WIDE_MASTER</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WIDE:MASTER'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory.WIDE_MASTER" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory.WIDE_MASTER_PLUS">
+<span class="sig-name descname"><span class="pre">WIDE_MASTER_PLUS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WIDE:MASTER+'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory.WIDE_MASTER_PLUS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory.WITCH_WITCH">
+<span class="sig-name descname"><span class="pre">WITCH_WITCH</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WITCH:WITCH'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory.WITCH_WITCH" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory.SMART_LIGHT">
+<span class="sig-name descname"><span class="pre">SMART_LIGHT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SMART:LIGHT'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory.SMART_LIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory.SMART_TRICK">
+<span class="sig-name descname"><span class="pre">SMART_TRICK</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SMART:TRICK'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory.SMART_TRICK" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory.GRAND_PIANO">
+<span class="sig-name descname"><span class="pre">GRAND_PIANO</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GRAND:PIANO'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory.GRAND_PIANO" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.SongCategory.GRAND_FORTE">
+<span class="sig-name descname"><span class="pre">GRAND_FORTE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GRAND:FORTE'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.SongCategory.GRAND_FORTE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">NoteType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>ノートタイプの列挙クラス。</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.START">
+<span class="sig-name descname"><span class="pre">START</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'START'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.START" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.END">
+<span class="sig-name descname"><span class="pre">END</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'END'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.END" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.TAP">
+<span class="sig-name descname"><span class="pre">TAP</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TAP'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.TAP" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.FLICK_LEFT">
+<span class="sig-name descname"><span class="pre">FLICK_LEFT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FLICK:LEFT'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.FLICK_LEFT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.FLICK_RIGHT">
+<span class="sig-name descname"><span class="pre">FLICK_RIGHT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FLICK:RIGHT'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.FLICK_RIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.LONG_ON">
+<span class="sig-name descname"><span class="pre">LONG_ON</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LONG:ON'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.LONG_ON" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.LONG_OFF">
+<span class="sig-name descname"><span class="pre">LONG_OFF</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LONG:OFF'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.LONG_OFF" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.LONG_FLICK_LEFT">
+<span class="sig-name descname"><span class="pre">LONG_FLICK_LEFT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LONG:FLICK:LEFT'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.LONG_FLICK_LEFT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.LONG_FLICK_RIGHT">
+<span class="sig-name descname"><span class="pre">LONG_FLICK_RIGHT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LONG:FLICK:RIGHT'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.LONG_FLICK_RIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.SLIDE_ON">
+<span class="sig-name descname"><span class="pre">SLIDE_ON</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SLIDE:ON'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.SLIDE_ON" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.SLIDE_PASS">
+<span class="sig-name descname"><span class="pre">SLIDE_PASS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SLIDE:PASS'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.SLIDE_PASS" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.SLIDE_OFF">
+<span class="sig-name descname"><span class="pre">SLIDE_OFF</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SLIDE:OFF'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.SLIDE_OFF" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.SLIDE_FLICK_LEFT">
+<span class="sig-name descname"><span class="pre">SLIDE_FLICK_LEFT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SLIDE:FLICK:LEFT'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.SLIDE_FLICK_LEFT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.SLIDE_FLICK_RIGHT">
+<span class="sig-name descname"><span class="pre">SLIDE_FLICK_RIGHT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SLIDE:FLICK:RIGHT'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.SLIDE_FLICK_RIGHT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteType.DAMAGE">
+<span class="sig-name descname"><span class="pre">DAMAGE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DAMAGE'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteType.DAMAGE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Song">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Song</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'未設定'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">SongCategory.WIDE_MASTER</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">SongType.ALL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.Song" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>デレステ楽曲情報のデータクラス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- タイトル</p></li>
+<li><p><strong>category</strong> (<a class="reference internal" href="#derenotes.libs.notes.song.SongCategory" title="derenotes.libs.notes.song.SongCategory"><em>SongCategory</em></a>) -- デレステ楽曲カテゴリ</p></li>
+<li><p><strong>type</strong> (<a class="reference internal" href="#derenotes.libs.notes.song.SongType" title="derenotes.libs.notes.song.SongType"><em>SongType</em></a>) -- デレステ楽曲タイプ</p></li>
+<li><p><strong>level</strong> (<em>int</em>) -- レベル</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Song.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'未設定'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Song.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Song.category">
+<span class="sig-name descname"><span class="pre">category</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory" title="derenotes.libs.notes.song.SongCategory"><span class="pre">SongCategory</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WIDE:MASTER'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Song.category" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Song.type">
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#derenotes.libs.notes.song.SongType" title="derenotes.libs.notes.song.SongType"><span class="pre">SongType</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ALL'</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Song.type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Song.level">
+<span class="sig-name descname"><span class="pre">level</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Song.level" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Note">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lane</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_base</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.Note" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>ノートのデータクラス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timestamp</strong> (<em>int</em>) -- time_base単位のタイムスタンプ</p></li>
+<li><p><strong>lane</strong> (<em>int</em>) -- 左端から数えたレーン番号。</p></li>
+<li><p><strong>width</strong> (<em>int</em>) -- レーン幅</p></li>
+<li><p><strong>type</strong> (<a class="reference internal" href="#derenotes.libs.notes.song.NoteType" title="derenotes.libs.notes.song.NoteType"><em>NoteType</em></a>) -- ノートタイプ</p></li>
+<li><p><strong>time_base</strong> (<em>Fraction</em>) -- 単位時間（秒）</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Note.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Note.timestamp" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Note.lane">
+<span class="sig-name descname"><span class="pre">lane</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Note.lane" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Note.width">
+<span class="sig-name descname"><span class="pre">width</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Note.width" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Note.type">
+<span class="sig-name descname"><span class="pre">type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#derenotes.libs.notes.song.NoteType" title="derenotes.libs.notes.song.NoteType"><span class="pre">NoteType</span></a></span><a class="headerlink" href="#derenotes.libs.notes.song.Note.type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Note.time_base">
+<span class="sig-name descname"><span class="pre">time_base</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Fraction</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Note.time_base" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.NoteLink">
+<span class="sig-name descname"><span class="pre">NoteLink</span></span><a class="headerlink" href="#derenotes.libs.notes.song.NoteLink" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>ノート（ロング、スライド）の始点・節点・終点を保持する <code class="docutils literal notranslate"><span class="pre">deque</span></code> 。</dt><dd><ul class="simple">
+<li><p>ロング: LONG_ON, LONG_OFF, LONG_FLICK_LEFT, LONG_FLICK_RIGHT</p></li>
+<li><p>スライド: SLIDE_ON, SLIDE_PASS, SLIDE_OFF, SLIDE_FLICK_LEFT, SLIDE_FLICK_RIGHT</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Chart</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Chart" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>デレステ譜面データを扱うクラス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Todo<span class="colon">:</span></dt>
+<dd class="field-odd"><p>self._notelink でロング・スライドのノートのつながりを扱う。</p>
+</dd>
+<dt class="field-even">Todo<span class="colon">:</span></dt>
+<dd class="field-even"><p>self._notes グランドの複数レーンに跨るノートを扱う。</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.videofile">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">videofile</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.videofile" title="Link to this definition">¶</a></dt>
+<dd><p>デレステ動画ファイルのパス名。</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.song">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">song</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#derenotes.libs.notes.song.Song" title="derenotes.libs.notes.song.Song"><span class="pre">Song</span></a></span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.song" title="Link to this definition">¶</a></dt>
+<dd><p>デレステ楽曲情報。</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.last_index">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">last_index</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.last_index" title="Link to this definition">¶</a></dt>
+<dd><p>デレステ譜面ファイル保存時の画面フレームのインデックス。</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.total_notes">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">total_notes</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.total_notes" title="Link to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">Note</span></code> の全数。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.current_notes">
+<span class="sig-name descname"><span class="pre">current_notes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.current_notes" title="Link to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code> 直前までの <code class="docutils literal notranslate"><span class="pre">Note</span></code> を数える。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timestamp</strong> (<em>int</em>) -- タイムスタンプ</p>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">Note</span></code> の数</p>
+</dd>
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.search_within_range">
+<span class="sig-name descname"><span class="pre">search_within_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_timestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_timestamp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.search_within_range" title="Link to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code> 範囲内の <code class="docutils literal notranslate"><span class="pre">Note</span></code> のリストを得る。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_timestamp</strong> (<em>int</em>) -- タイムスタンプ範囲の下限</p></li>
+<li><p><strong>max_timestamp</strong> (<em>int</em>) -- タイムスタンプ範囲の上限</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">Note</span></code> のリスト</p>
+</dd>
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Iterator[<a class="reference internal" href="#derenotes.libs.notes.song.Note" title="derenotes.libs.notes.song.Note">Note</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.find" title="Link to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code> の <code class="docutils literal notranslate"><span class="pre">Note</span></code> のリストを得る。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timestamp</strong> (<em>int</em>) -- タイムスタンプ</p>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">Note</span></code> のリスト</p>
+</dd>
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Iterator[<a class="reference internal" href="#derenotes.libs.notes.song.Note" title="derenotes.libs.notes.song.Note">Note</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.push">
+<span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.push" title="Link to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">Note</span></code> を追加する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>note</strong> (<a class="reference internal" href="#derenotes.libs.notes.song.Note" title="derenotes.libs.notes.song.Note"><em>Note</em></a>) -- 追加する <code class="docutils literal notranslate"><span class="pre">Note</span></code></p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">note</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.remove" title="Link to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">Note</span></code> を削除する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>note</strong> (<a class="reference internal" href="#derenotes.libs.notes.song.Note" title="derenotes.libs.notes.song.Note"><em>Note</em></a>) -- 削除する <code class="docutils literal notranslate"><span class="pre">Note</span></code></p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.save" title="Link to this definition">¶</a></dt>
+<dd><p>デレステ譜面ファイルを保存する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>Path</em><em>|</em><em>None</em>) -- デレステ譜面ファイルのパスオブジェクト</p>
+</dd>
+<dt class="field-even">例外<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#derenotes.libs.notes.song.SONGError" title="derenotes.libs.notes.song.SONGError"><strong>SONGError</strong></a> -- ファイルが見つからない、または保存できない場合</p>
+</dd>
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.notes.song.Chart.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.notes.song.Chart.load" title="Link to this definition">¶</a></dt>
+<dd><p>デレステ譜面ファイルを読み込む。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>Path</em>) -- デレステ譜面ファイルのパスオブジェクト</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">目次</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">derenotes.libs.notes.song module</a><ul>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SONGError"><code class="docutils literal notranslate"><span class="pre">SONGError</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongType"><code class="docutils literal notranslate"><span class="pre">SongType</span></code></a><ul>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongType.ALL"><code class="docutils literal notranslate"><span class="pre">SongType.ALL</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongType.CUTE"><code class="docutils literal notranslate"><span class="pre">SongType.CUTE</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongType.COOL"><code class="docutils literal notranslate"><span class="pre">SongType.COOL</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongType.PASSION"><code class="docutils literal notranslate"><span class="pre">SongType.PASSION</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory"><code class="docutils literal notranslate"><span class="pre">SongCategory</span></code></a><ul>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory.WIDE_DEBUT"><code class="docutils literal notranslate"><span class="pre">SongCategory.WIDE_DEBUT</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory.WIDE_REGULAR"><code class="docutils literal notranslate"><span class="pre">SongCategory.WIDE_REGULAR</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory.WIDE_PRO"><code class="docutils literal notranslate"><span class="pre">SongCategory.WIDE_PRO</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory.WIDE_MASTER"><code class="docutils literal notranslate"><span class="pre">SongCategory.WIDE_MASTER</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory.WIDE_MASTER_PLUS"><code class="docutils literal notranslate"><span class="pre">SongCategory.WIDE_MASTER_PLUS</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory.WITCH_WITCH"><code class="docutils literal notranslate"><span class="pre">SongCategory.WITCH_WITCH</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory.SMART_LIGHT"><code class="docutils literal notranslate"><span class="pre">SongCategory.SMART_LIGHT</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory.SMART_TRICK"><code class="docutils literal notranslate"><span class="pre">SongCategory.SMART_TRICK</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory.GRAND_PIANO"><code class="docutils literal notranslate"><span class="pre">SongCategory.GRAND_PIANO</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.SongCategory.GRAND_FORTE"><code class="docutils literal notranslate"><span class="pre">SongCategory.GRAND_FORTE</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType"><code class="docutils literal notranslate"><span class="pre">NoteType</span></code></a><ul>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.START"><code class="docutils literal notranslate"><span class="pre">NoteType.START</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.END"><code class="docutils literal notranslate"><span class="pre">NoteType.END</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.TAP"><code class="docutils literal notranslate"><span class="pre">NoteType.TAP</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.FLICK_LEFT"><code class="docutils literal notranslate"><span class="pre">NoteType.FLICK_LEFT</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.FLICK_RIGHT"><code class="docutils literal notranslate"><span class="pre">NoteType.FLICK_RIGHT</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.LONG_ON"><code class="docutils literal notranslate"><span class="pre">NoteType.LONG_ON</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.LONG_OFF"><code class="docutils literal notranslate"><span class="pre">NoteType.LONG_OFF</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.LONG_FLICK_LEFT"><code class="docutils literal notranslate"><span class="pre">NoteType.LONG_FLICK_LEFT</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.LONG_FLICK_RIGHT"><code class="docutils literal notranslate"><span class="pre">NoteType.LONG_FLICK_RIGHT</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.SLIDE_ON"><code class="docutils literal notranslate"><span class="pre">NoteType.SLIDE_ON</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.SLIDE_PASS"><code class="docutils literal notranslate"><span class="pre">NoteType.SLIDE_PASS</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.SLIDE_OFF"><code class="docutils literal notranslate"><span class="pre">NoteType.SLIDE_OFF</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.SLIDE_FLICK_LEFT"><code class="docutils literal notranslate"><span class="pre">NoteType.SLIDE_FLICK_LEFT</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.SLIDE_FLICK_RIGHT"><code class="docutils literal notranslate"><span class="pre">NoteType.SLIDE_FLICK_RIGHT</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteType.DAMAGE"><code class="docutils literal notranslate"><span class="pre">NoteType.DAMAGE</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Song"><code class="docutils literal notranslate"><span class="pre">Song</span></code></a><ul>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Song.name"><code class="docutils literal notranslate"><span class="pre">Song.name</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Song.category"><code class="docutils literal notranslate"><span class="pre">Song.category</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Song.type"><code class="docutils literal notranslate"><span class="pre">Song.type</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Song.level"><code class="docutils literal notranslate"><span class="pre">Song.level</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Note"><code class="docutils literal notranslate"><span class="pre">Note</span></code></a><ul>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Note.timestamp"><code class="docutils literal notranslate"><span class="pre">Note.timestamp</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Note.lane"><code class="docutils literal notranslate"><span class="pre">Note.lane</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Note.width"><code class="docutils literal notranslate"><span class="pre">Note.width</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Note.type"><code class="docutils literal notranslate"><span class="pre">Note.type</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Note.time_base"><code class="docutils literal notranslate"><span class="pre">Note.time_base</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.NoteLink"><code class="docutils literal notranslate"><span class="pre">NoteLink</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart"><code class="docutils literal notranslate"><span class="pre">Chart</span></code></a><ul>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.videofile"><code class="docutils literal notranslate"><span class="pre">Chart.videofile</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.song"><code class="docutils literal notranslate"><span class="pre">Chart.song</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.last_index"><code class="docutils literal notranslate"><span class="pre">Chart.last_index</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.total_notes"><code class="docutils literal notranslate"><span class="pre">Chart.total_notes</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.current_notes"><code class="docutils literal notranslate"><span class="pre">Chart.current_notes()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.search_within_range"><code class="docutils literal notranslate"><span class="pre">Chart.search_within_range()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.find"><code class="docutils literal notranslate"><span class="pre">Chart.find()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.push"><code class="docutils literal notranslate"><span class="pre">Chart.push()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.remove"><code class="docutils literal notranslate"><span class="pre">Chart.remove()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.save"><code class="docutils literal notranslate"><span class="pre">Chart.save()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.notes.song.Chart.load"><code class="docutils literal notranslate"><span class="pre">Chart.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>前のトピックへ</h4>
+    <p class="topless"><a href="derenotes.libs.notes.html"
+                          title="前の章へ">derenotes.libs.notes namespace</a></p>
+  </div>
+  <div>
+    <h4>次のトピックへ</h4>
+    <p class="topless"><a href="derenotes.libs.image.html"
+                          title="次の章へ">derenotes.libs.image namespace</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/derenotes.libs.notes.song.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="derenotes.libs.image.html" title="derenotes.libs.image namespace"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="derenotes.libs.notes.html" title="derenotes.libs.notes namespace"
+             >前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">derenotes 1.0.0 ドキュメント</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="derenotes.libs.notes.html" >derenotes.libs.notes namespace</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">derenotes.libs.notes.song module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; 著作権 2026, tomosatoP.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+    </div>
+  </body>
+</html>
