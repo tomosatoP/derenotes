@@ -22,7 +22,7 @@ jobs:
       run: |
         sudo apt install python3-dev libavutil-dev libavformat-dev libavcodec-dev libswscale-dev
         python -m pip install --upgrade pip
-        pip install -U setuptools sphinx kivy cython
+        pip install -U setuptools build sphinx kivy cython
         python -m build
         pip install .
 
