@@ -1,0 +1,16 @@
+derenotes namespace
+===================
+
+.. py:module:: derenotes
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 2
+
+   derenotes.chart
+   derenotes.derenotes
+   derenotes.file
+   derenotes.frame
+   derenotes.seek
