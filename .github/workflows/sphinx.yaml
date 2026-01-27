@@ -13,16 +13,6 @@ jobs:
       with:
         persist-credentials: false
 
-    - name: Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.11" # StrEnum は 3.11 で追加された
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip setuptools
-        pip install "kivy[base]" cython
-
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
       with:
