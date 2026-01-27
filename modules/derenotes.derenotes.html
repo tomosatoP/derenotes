@@ -43,8 +43,121 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="derenotes-derenotes-module">
-<h1>derenotes.derenotes module<a class="headerlink" href="#derenotes-derenotes-module" title="Link to this heading">¶</a></h1>
+  <section id="module-derenotes.derenotes">
+<span id="derenotes-derenotes-module"></span><h1>derenotes.derenotes module<a class="headerlink" href="#module-derenotes.derenotes" title="Link to this heading">¶</a></h1>
+<p>デレステ譜面ファイル作成アプリのメインウィンドウ。</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="derenotes.derenotes.MainBoxLayout">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">MainBoxLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.derenotes.MainBoxLayout" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">BoxLayout</span></code></p>
+<p>メインウィンドウ。</p>
+<dl class="field-list simple">
+<dt class="field-odd">構成 fileview<span class="colon">:</span></dt>
+<dd class="field-odd"><p>データ譜面ファイルの管理ウィジット。</p>
+</dd>
+<dt class="field-even">構成 preview<span class="colon">:</span></dt>
+<dd class="field-even"><p>デレステ動画データの画像フレームを表示するウィジット。</p>
+</dd>
+<dt class="field-odd">構成 seekbar<span class="colon">:</span></dt>
+<dd class="field-odd"><p>画像フレーム番号を指定するウィジット。</p>
+</dd>
+<dt class="field-even">構成 seekpanel<span class="colon">:</span></dt>
+<dd class="field-even"><p>シーク移動量を指定するウィジット。</p>
+</dd>
+<dt class="field-odd">構成 chartedit<span class="colon">:</span></dt>
+<dd class="field-odd"><p>デレステ譜面データを編集するウィジット。</p>
+</dd>
+<dt class="field-even">構成 notetypes<span class="colon">:</span></dt>
+<dd class="field-even"><p>ノートタイプ選択ウィジット。</p>
+</dd>
+<dt class="field-odd">構成 chartview<span class="colon">:</span></dt>
+<dd class="field-odd"><p>デレステ譜面データを表示するウィジット。</p>
+</dd>
+<dt class="field-even">パラメータ<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>kwargs</strong> (<em>Any</em>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.derenotes.MainBoxLayout.check_all_views">
+<span class="sig-name descname"><span class="pre">check_all_views</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.derenotes.MainBoxLayout.check_all_views" title="Link to this definition">¶</a></dt>
+<dd><p>各ウィジットが正しくクラスから生成されていることを確認する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.derenotes.MainBoxLayout.changed_file">
+<span class="sig-name descname"><span class="pre">changed_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.derenotes.MainBoxLayout.changed_file" title="Link to this definition">¶</a></dt>
+<dd><p>デレステ譜面データが更新（新規作成、開く、閉じる）されたら各ウィジットを再設定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.derenotes.MainBoxLayout.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.derenotes.MainBoxLayout.reset" title="Link to this definition">¶</a></dt>
+<dd><p>各ウィジットを初期化する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.derenotes.MainBoxLayout.setup">
+<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.derenotes.MainBoxLayout.setup" title="Link to this definition">¶</a></dt>
+<dd><p>各ウィジットを設定する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.derenotes.MainBoxLayout.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.derenotes.MainBoxLayout.update" title="Link to this definition">¶</a></dt>
+<dd><p>シーク値が変更されたら各ウィジットを更新する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derenotes.derenotes.DerenotesApp">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">DerenotesApp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.derenotes.DerenotesApp" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></p>
+<p>デレステ譜面ファイル作成アプリのエントリーポイント。</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.derenotes.DerenotesApp.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.derenotes.DerenotesApp.build" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the application; it will be called only once.
+If this method returns a widget (tree), it will be used as the root
+widget and added to the window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or a root <code class="xref py py-class docutils literal notranslate"><span class="pre">Widget</span></code> instance
+if no self.root exists.</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#derenotes.derenotes.MainBoxLayout" title="derenotes.derenotes.MainBoxLayout"><em>MainBoxLayout</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -54,6 +167,27 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">目次</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">derenotes.derenotes module</a><ul>
+<li><a class="reference internal" href="#derenotes.derenotes.MainBoxLayout"><code class="docutils literal notranslate"><span class="pre">MainBoxLayout</span></code></a><ul>
+<li><a class="reference internal" href="#derenotes.derenotes.MainBoxLayout.check_all_views"><code class="docutils literal notranslate"><span class="pre">MainBoxLayout.check_all_views()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.derenotes.MainBoxLayout.changed_file"><code class="docutils literal notranslate"><span class="pre">MainBoxLayout.changed_file()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.derenotes.MainBoxLayout.reset"><code class="docutils literal notranslate"><span class="pre">MainBoxLayout.reset()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.derenotes.MainBoxLayout.setup"><code class="docutils literal notranslate"><span class="pre">MainBoxLayout.setup()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.derenotes.MainBoxLayout.update"><code class="docutils literal notranslate"><span class="pre">MainBoxLayout.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derenotes.derenotes.DerenotesApp"><code class="docutils literal notranslate"><span class="pre">DerenotesApp</span></code></a><ul>
+<li><a class="reference internal" href="#derenotes.derenotes.DerenotesApp.build"><code class="docutils literal notranslate"><span class="pre">DerenotesApp.build()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
   <div>
     <h4>前のトピックへ</h4>
     <p class="topless"><a href="derenotes.chart.html"
@@ -107,7 +241,7 @@
     </div>
     <div class="footer" role="contentinfo">
     &#169; 著作権 2026, tomosatoP.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

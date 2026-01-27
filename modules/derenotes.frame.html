@@ -43,8 +43,159 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="derenotes-frame-module">
-<h1>derenotes.frame module<a class="headerlink" href="#derenotes-frame-module" title="Link to this heading">¶</a></h1>
+  <section id="module-derenotes.frame">
+<span id="derenotes-frame-module"></span><h1>derenotes.frame module<a class="headerlink" href="#module-derenotes.frame" title="Link to this heading">¶</a></h1>
+<p>デレステ動画を扱うモジュール。</p>
+<p>デレステ動画データの画像フレームを表示するウィジットを扱う。</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="derenotes.frame.FrameView">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">FrameView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.frame.FrameView" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">Image</span></code></p>
+<p>デレステ動画データの画像フレームを表示するウィジェット。</p>
+<p>デレステ動画データを保持し、インデックスで指定された画像フレームを表示する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">変数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame_index</strong> (<em>NumericProperty</em>) -- 画像フレームのインデックス。</p></li>
+<li><p><strong>colorfmt</strong> (<em>str</em>) -- 画像フレームの色フォーマット。初期値は、 <strong>rgb</strong> 。</p></li>
+<li><p><strong>bufferfmt</strong> (<em>str</em>) -- 画像フレームのバッファーフォーマット。初期値は、 <strong>ubyte</strong> 。</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.frame.FrameView.frame_index">
+<span class="sig-name descname"><span class="pre">frame_index</span></span><a class="headerlink" href="#derenotes.frame.FrameView.frame_index" title="Link to this definition">¶</a></dt>
+<dd><p>NumericProperty(defaultvalue=0, <a href="#id1"><span class="problematic" id="id2">**</span></a>kw)
+Property that represents a numeric value.</p>
+<blockquote>
+<div><p>It only accepts the int or float numeric data type or a string that can be
+converted to a number as shown below. For other numeric types use ObjectProperty
+or use errorhandler to convert it to an int/float.</p>
+<p>It does not support numpy numbers so they must be manually converted to int/float.
+E.g. <code class="docutils literal notranslate"><span class="pre">widget.num</span> <span class="pre">=</span> <span class="pre">np.arange(4)[0]</span></code> will raise an exception. Numpy arrays are not
+supported at all, even by ObjectProperty because their comparison does not return
+a bool. But if you must use a Kivy property, use a ObjectProperty with <code class="docutils literal notranslate"><span class="pre">comparator</span></code>
+set to <code class="docutils literal notranslate"><span class="pre">np.array_equal</span></code>. E.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">(</span><span class="n">EventDispatcher</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">data</span> <span class="o">=</span> <span class="n">ObjectProperty</span><span class="p">(</span><span class="n">comparator</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">print</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&lt;__main__.A object at 0x000001C839B50208&gt; [0 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">&lt;__main__.A object at 0x000001C839B50208&gt; [0 1 2]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>defaultvalue</cite>: int or float, defaults to 0</dt><dd><p>Specifies the default value of the property.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wid</span> <span class="o">=</span> <span class="n">Widget</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wid</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">wid</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wid</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;plop&quot;</span>
+<span class="go"> Traceback (most recent call last):</span>
+<span class="go">   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
+<span class="go">   File &quot;properties.pyx&quot;, line 93, in kivy.properties.Property.__set__</span>
+<span class="go">   File &quot;properties.pyx&quot;, line 111, in kivy.properties.Property.set</span>
+<span class="go">   File &quot;properties.pyx&quot;, line 159, in kivy.properties.NumericProperty.check</span>
+<span class="go"> ValueError: NumericProperty accept only int/float</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">バージョン 1.4.1 で変更: </span>NumericProperty can now accept custom text and tuple value to indicate a
+type, like &quot;in&quot;, &quot;pt&quot;, &quot;px&quot;, &quot;cm&quot;, &quot;mm&quot;, in the format: '10pt' or (10,
+'pt').</p>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.frame.FrameView.colorfmt">
+<span class="sig-name descname"><span class="pre">colorfmt</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rgb'</span></span><a class="headerlink" href="#derenotes.frame.FrameView.colorfmt" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.frame.FrameView.bufferfmt">
+<span class="sig-name descname"><span class="pre">bufferfmt</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ubyte'</span></span><a class="headerlink" href="#derenotes.frame.FrameView.bufferfmt" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.frame.FrameView.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.frame.FrameView.reset" title="Link to this definition">¶</a></dt>
+<dd><p>デレステ動画データを破棄し、表示をリセットする。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.frame.FrameView.setup">
+<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">video_filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.frame.FrameView.setup" title="Link to this definition">¶</a></dt>
+<dd><p>設定を行う。</p>
+<p>デレステ動画ファイルを読み込んでデレステ動画データを生成し、
+デレステ動画データから取得したフレームサイズで画像フレームを確保する。
+グラフィックスコンテキスト全体が再読み込みされた時のコールバック関数を登録する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>video_filename</strong> (<em>str</em>) -- デレステ動画ファイルのパス名。</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.frame.FrameView.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.frame.FrameView.update" title="Link to this definition">¶</a></dt>
+<dd><p>画像フレームを表示する。</p>
+<p>ウィジットが準備済みでなければ、何もしない。
+指定された <code class="docutils literal notranslate"><span class="pre">frame_index</span></code> でフレームバッファを画像フレームに転送する（表示される）。
+グラフィックスコンテキスト全体が再読み込みされた時のためにフレームバッファをバックアップする。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.frame.FrameView.reload_buffer">
+<span class="sig-name descname"><span class="pre">reload_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texture</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.frame.FrameView.reload_buffer" title="Link to this definition">¶</a></dt>
+<dd><p>コールバック関数。</p>
+<p>グラフィックスコンテキスト全体が再読み込みされた時のコールバック関数で、バックアップされたフレームのバッファを転送する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>texture</strong> (<em>Texture</em>) -- 呼び出し元のグラフィックスコンテキスト。</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="derenotes.frame.FrameView.total_frames">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">total_frames</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#derenotes.frame.FrameView.total_frames" title="Link to this definition">¶</a></dt>
+<dd><p>総フレーム数。</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="derenotes.frame.FrameView.elapsed_time">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">elapsed_time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Fraction</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#derenotes.frame.FrameView.elapsed_time" title="Link to this definition">¶</a></dt>
+<dd><p>フレームの経過時間。</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -54,6 +205,27 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">目次</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">derenotes.frame module</a><ul>
+<li><a class="reference internal" href="#derenotes.frame.FrameView"><code class="docutils literal notranslate"><span class="pre">FrameView</span></code></a><ul>
+<li><a class="reference internal" href="#derenotes.frame.FrameView.frame_index"><code class="docutils literal notranslate"><span class="pre">FrameView.frame_index</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.frame.FrameView.colorfmt"><code class="docutils literal notranslate"><span class="pre">FrameView.colorfmt</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.frame.FrameView.bufferfmt"><code class="docutils literal notranslate"><span class="pre">FrameView.bufferfmt</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.frame.FrameView.reset"><code class="docutils literal notranslate"><span class="pre">FrameView.reset()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.frame.FrameView.setup"><code class="docutils literal notranslate"><span class="pre">FrameView.setup()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.frame.FrameView.update"><code class="docutils literal notranslate"><span class="pre">FrameView.update()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.frame.FrameView.reload_buffer"><code class="docutils literal notranslate"><span class="pre">FrameView.reload_buffer()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.frame.FrameView.total_frames"><code class="docutils literal notranslate"><span class="pre">FrameView.total_frames</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.frame.FrameView.elapsed_time"><code class="docutils literal notranslate"><span class="pre">FrameView.elapsed_time</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
   <div>
     <h4>前のトピックへ</h4>
     <p class="topless"><a href="derenotes.file.html"
@@ -107,7 +279,7 @@
     </div>
     <div class="footer" role="contentinfo">
     &#169; 著作権 2026, tomosatoP.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

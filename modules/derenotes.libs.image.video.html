@@ -39,8 +39,284 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="derenotes-libs-image-video-module">
-<h1>derenotes.libs.image.video module<a class="headerlink" href="#derenotes-libs-image-video-module" title="Link to this heading">¶</a></h1>
+  <section id="module-derenotes.libs.image.video">
+<span id="derenotes-libs-image-video-module"></span><h1>derenotes.libs.image.video module<a class="headerlink" href="#module-derenotes.libs.image.video" title="Link to this heading">¶</a></h1>
+<p>動画ファイルから画像を取り出すためのモジュール。</p>
+<dl class="field-list simple">
+<dt class="field-odd">目的<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">入力</span></code> から <strong>任意のタイムスタンプ</strong> の <code class="docutils literal notranslate"><span class="pre">出力</span></code> を取り出す。</p>
+</dd>
+<dt class="field-even">入力<span class="colon">:</span></dt>
+<dd class="field-even"><p>デレステのオートLIVEを録画した動画ファイル</p>
+<ul class="simple">
+<li><p>動画ファイルの形式: <code class="docutils literal notranslate"><span class="pre">MP4</span></code></p></li>
+<li><p>エンコード形式: <code class="docutils literal notranslate"><span class="pre">H.264/AVC</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-odd">出力<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">kivy.graphics.texture</span></code> への入力を前提にした画像フレーム（バッファ）</p>
+<ul class="simple">
+<li><p>ピクセルフォーマット: <code class="docutils literal notranslate"><span class="pre">rgb24</span></code></p></li>
+<li><p>データ型: <code class="docutils literal notranslate"><span class="pre">uint8</span></code> 配列</p></li>
+</ul>
+</dd>
+<dt class="field-even">手段<span class="colon">:</span></dt>
+<dd class="field-even"><p>FFMpeg共有ライブラリィから目的に合った機能を呼び出す。以下の機能は、取り扱わない。</p>
+<ol class="arabic simple">
+<li><p>画像のエンコード</p></li>
+<li><p>音声や字幕のエンコードおよびデコード</p></li>
+</ol>
+</dd>
+<dt class="field-odd">背景<span class="colon">:</span></dt>
+<dd class="field-odd"><p>可変フレームレートの動画ファイルのインデックス検索で問題があり、画像を取り出せなかった。</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Stream</span></span><a class="headerlink" href="#derenotes.libs.image.video.Stream" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>画像ストリームを扱う。</p>
+<div class="line-block">
+<div class="line">デレステ動画ファイルの画像ストリームを扱う。</div>
+<div class="line">画像ストリームから、任意のタイムスタンプに紐付いた画像フレーム（バッファ）を取り出す。</div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>ピクセルフォーマット: <code class="docutils literal notranslate"><span class="pre">rgb24</span></code></p></li>
+<li><p>データ型: <code class="docutils literal notranslate"><span class="pre">uint8</span></code> 配列</p></li>
+</ul>
+</div></blockquote>
+<p>音声および字幕のストリームは無視する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) -- url形式のデレステ動画ファイル名。</p></li>
+<li><p><strong>file_type</strong> (<em>str</em>) -- デレステ動画ファイルの形式。デフォルトは <code class="docutils literal notranslate"><span class="pre">mp4</span></code> 。</p></li>
+<li><p><strong>hardware</strong> (<em>str</em>) -- <p>デコーダーに適用するハードウェア名。デフォルトは <code class="docutils literal notranslate"><span class="pre">None</span></code> 。</p>
+<p>ハードウェアデコーダーを有効にする場合は、ハードウェア名を指定する。</p>
+<blockquote>
+<div><p>例: &quot;cuda&quot;, &quot;vaapi&quot;, &quot;vdpau&quot;, &quot;vulkan&quot; など</p>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">例外<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#derenotes.libs.image.video.VIDEOError" title="derenotes.libs.image.video.VIDEOError"><strong>VIDEOError</strong></a> -- 動画ファイルのオープンに失敗、ストリーム情報の取得に失敗、デコーダーの初期化に失敗など</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.decoder_name">
+<span class="sig-name descname"><span class="pre">decoder_name</span></span><a class="headerlink" href="#derenotes.libs.image.video.Stream.decoder_name" title="Link to this definition">¶</a></dt>
+<dd><p>デコーダー名。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p>デコーダー名</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.dump">
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.image.video.Stream.dump" title="Link to this definition">¶</a></dt>
+<dd><p>画像ストリームの情報をデバック用ログに出力する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.frame_buffer">
+<span class="sig-name descname"><span class="pre">frame_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.image.video.Stream.frame_buffer" title="Link to this definition">¶</a></dt>
+<dd><p>画像フレーム（バッファ）を読み出す。</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">index</span></code> に対応したタイムスタンプの画像フレーム（バッファ）を読み出す。</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">kivy.graphics.texture</span></code> へ渡すこと前提に、ピクセルフォーマット <code class="docutils literal notranslate"><span class="pre">rgb24</span></code> および <code class="docutils literal notranslate"><span class="pre">uint8</span></code> 配列に整形し、</div>
+<div class="line">画像フレームが見つからなかった際には、 <strong>黒</strong> 画面相当の画像フレーム（バッファ）を返す。</div>
+<div class="line">範囲外のindexに対しては、エラー発生。</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) -- 読み出したい画像フレームのインデックス</p>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p>指定のインデックスの画像フレーム（バッファ）</p>
+</dd>
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+<dt class="field-even">例外<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#derenotes.libs.image.video.VIDEOError" title="derenotes.libs.image.video.VIDEOError"><strong>VIDEOError</strong></a> -- 指定のインデックスが範囲外、ハードウェアデコーダー向けのデータ変換に失敗</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.hardware_supported_by_codecs">
+<span class="sig-name descname"><span class="pre">hardware_supported_by_codecs</span></span><a class="headerlink" href="#derenotes.libs.image.video.Stream.hardware_supported_by_codecs" title="Link to this definition">¶</a></dt>
+<dd><p>デコーダーで利用可能なハードウェア名の一覧。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p>デコーダーで利用可能なハードウェア名の一覧</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#derenotes.libs.image.video.Stream.height" title="Link to this definition">¶</a></dt>
+<dd><p>画像の高さ。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p>画像の高さ</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.nearby_keyframe_buffer">
+<span class="sig-name descname"><span class="pre">nearby_keyframe_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nearby_keyframe</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.image.video.Stream.nearby_keyframe_buffer" title="Link to this definition">¶</a></dt>
+<dd><p>近傍のキーフレームの画像フレーム（バッファ）を読み出す。</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">index</span></code> から <code class="docutils literal notranslate"><span class="pre">nearby_keyframe</span></code> （ <code class="docutils literal notranslate"><span class="pre">GOP</span></code> 単位）離れた近傍のIフレームの画像フレーム（バッファ）を読み出す。</div>
+<div class="line">範囲外の場合には、&quot;黒&quot;画面相当の画像フレーム（バッファ）を返す。</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<em>int</em>) -- 画像フレームのインデックス</p></li>
+<li><p><strong>nearby_keyframe</strong> (<em>int</em>) -- 近傍のキーフレームへの間隔（ <code class="docutils literal notranslate"><span class="pre">GOP</span></code> 単位）</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p>近傍のキーフレームの画像フレーム（バッファ）</p>
+</dd>
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.pixel_format">
+<span class="sig-name descname"><span class="pre">pixel_format</span></span><a class="headerlink" href="#derenotes.libs.image.video.Stream.pixel_format" title="Link to this definition">¶</a></dt>
+<dd><p>ピクセルフォーマット名。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ピクセルフォーマット名</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.time_base">
+<span class="sig-name descname"><span class="pre">time_base</span></span><a class="headerlink" href="#derenotes.libs.image.video.Stream.time_base" title="Link to this definition">¶</a></dt>
+<dd><p>時間単位（秒）。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p>時間単位（秒）</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>Fraction（分子, 分母）</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.image.video.Stream.timestamp" title="Link to this definition">¶</a></dt>
+<dd><p>画像フレームの <code class="docutils literal notranslate"><span class="pre">index</span></code> をタイムスタンプに変換する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) -- タイムスタンプを取得したい画像フレームのインデックス</p>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p>指定のインデックスの画像フレームのタイムスタンプ</p>
+</dd>
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">例外<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#derenotes.libs.image.video.VIDEOError" title="derenotes.libs.image.video.VIDEOError"><strong>VIDEOError</strong></a> -- 指定のインデックスが範囲外</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.total_frames">
+<span class="sig-name descname"><span class="pre">total_frames</span></span><a class="headerlink" href="#derenotes.libs.image.video.Stream.total_frames" title="Link to this definition">¶</a></dt>
+<dd><p>動画ファイル内の総フレーム数。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p>総フレーム数</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.video_path">
+<span class="sig-name descname"><span class="pre">video_path</span></span><a class="headerlink" href="#derenotes.libs.image.video.Stream.video_path" title="Link to this definition">¶</a></dt>
+<dd><p>動画ファイルのパス。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p>動画ファイルのパス</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.Stream.width">
+<span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#derenotes.libs.image.video.Stream.width" title="Link to this definition">¶</a></dt>
+<dd><p>画像の幅。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><p>画像の幅</p>
+</dd>
+<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.VIDEOError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">VIDEOError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.image.video.VIDEOError" title="Link to this definition">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>videoモジュールのエラーハンドラ。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="derenotes.libs.image.video.info_ffmpeg">
+<span class="sig-name descname"><span class="pre">info_ffmpeg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.libs.image.video.info_ffmpeg" title="Link to this definition">¶</a></dt>
+<dd><p>FFMpeg関連共有ライブラリィの情報をログ出力する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -50,6 +326,32 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">目次</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">derenotes.libs.image.video module</a><ul>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream"><code class="docutils literal notranslate"><span class="pre">Stream</span></code></a><ul>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.decoder_name"><code class="docutils literal notranslate"><span class="pre">Stream.decoder_name</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.dump"><code class="docutils literal notranslate"><span class="pre">Stream.dump()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.frame_buffer"><code class="docutils literal notranslate"><span class="pre">Stream.frame_buffer()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.hardware_supported_by_codecs"><code class="docutils literal notranslate"><span class="pre">Stream.hardware_supported_by_codecs</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.height"><code class="docutils literal notranslate"><span class="pre">Stream.height</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.nearby_keyframe_buffer"><code class="docutils literal notranslate"><span class="pre">Stream.nearby_keyframe_buffer()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.pixel_format"><code class="docutils literal notranslate"><span class="pre">Stream.pixel_format</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.time_base"><code class="docutils literal notranslate"><span class="pre">Stream.time_base</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.timestamp"><code class="docutils literal notranslate"><span class="pre">Stream.timestamp()</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.total_frames"><code class="docutils literal notranslate"><span class="pre">Stream.total_frames</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.video_path"><code class="docutils literal notranslate"><span class="pre">Stream.video_path</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.Stream.width"><code class="docutils literal notranslate"><span class="pre">Stream.width</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.VIDEOError"><code class="docutils literal notranslate"><span class="pre">VIDEOError</span></code></a></li>
+<li><a class="reference internal" href="#derenotes.libs.image.video.info_ffmpeg"><code class="docutils literal notranslate"><span class="pre">info_ffmpeg()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
   <div>
     <h4>前のトピックへ</h4>
     <p class="topless"><a href="derenotes.libs.image.html"
@@ -95,7 +397,7 @@
     </div>
     <div class="footer" role="contentinfo">
     &#169; 著作権 2026, tomosatoP.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>
