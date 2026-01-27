@@ -13,11 +13,14 @@ jobs:
       with:
         persist-credentials: false
 
-    - name: Build HTML
-      uses: ammaraskar/sphinx-action@master
+    - name: Python
+      uses: actions/setup-python@v6
       with:
-        docs-folder: "docs/api/"
-        build-command: "sphinx-build -M html source build" 
+        python-version: "3.11"  # StrEnum は 3.11 で追加
+  
+    - name: Build HTML
+      run: |
+        sphinx-build -b html docs/api/source docs/api/build
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
