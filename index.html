@@ -40,9 +40,22 @@
             
   <section id="derenotes-api-documentation">
 <h1>derenotes API documentation<a class="headerlink" href="#derenotes-api-documentation" title="Link to this heading">¶</a></h1>
-<ul class="simple">
-<li><p>GUIフレームワークには、Kivyを使っています。</p></li>
-<li><p>動画ファイルの画像フレームを取り出すために、FFMpeg共有ライブラリィを使っています。</p></li>
+<p><strong>デレステ譜面ファイル作成アプリ</strong> 用に作った <code class="docutils literal notranslate"><span class="pre">Python</span></code> モジュールの説明です。</p>
+<p><strong>WSL2 ubuntu</strong> 環境で動作可能です。</p>
+<ul>
+<li><p>GUIフレームワークには、 <code class="docutils literal notranslate"><span class="pre">Kivy</span></code> を使っています。</p></li>
+<li><p>動画ファイルの画像フレームを取り出すために、FFMpeg共有ライブラリィを使っています。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>python3-dev</p></li>
+<li><p>libavutil-dev</p></li>
+<li><p>libavformat-dev</p></li>
+<li><p>libavcodec-dev</p></li>
+<li><p>libswscale-dev</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>FFMpeg共有ライブラリィを使うために、 <code class="docutils literal notranslate"><span class="pre">Cython</span></code> を使っています。</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
