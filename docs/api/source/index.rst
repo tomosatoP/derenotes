@@ -19,7 +19,7 @@ derenotes API documentation
    - libavcodec-dev
    - libswscale-dev
 
-- FFMpeg共有ライブラリィを使うために、 ``Cython`` を使っています。
+- FFMpeg共有ライブラリィを使うために、 ``Cython``, ``numpy`` を使っています。
 
 .. toctree::
    :maxdepth: 2
