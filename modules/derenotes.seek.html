@@ -43,108 +43,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-derenotes.seek">
-<span id="derenotes-seek-module"></span><h1>derenotes.seek module<a class="headerlink" href="#module-derenotes.seek" title="Link to this heading">¶</a></h1>
-<p>デレステ動画データのフレーム番号指定方法を提供するモジュール。</p>
-<p>フレーム番号を指定するウィジットとシーク移動量を指定するウィジットを扱う。</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="derenotes.seek.SeekBar">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">SeekBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.seek.SeekBar" title="Link to this definition">¶</a></dt>
-<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">BoxLayout</span></code></p>
-<p>画像フレームのインデックスを指定するウィジット。</p>
-<p>シーク用スライダーを操作して画像フレームのインデックスを指定する。
-画像フレームの経過時間を表示する。</p>
-<dl class="field-list simple">
-<dt class="field-odd">構成 Label elapsedtime<span class="colon">:</span></dt>
-<dd class="field-odd"><p>経過時間ラベル</p>
-</dd>
-<dt class="field-even">構成 Slider slider<span class="colon">:</span></dt>
-<dd class="field-even"><p>シーク用スライダー</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="derenotes.seek.SeekBar.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.seek.SeekBar.reset" title="Link to this definition">¶</a></dt>
-<dd><p>初期状態に戻す。</p>
-<dl class="field-list simple">
-<dt class="field-odd">戻り値の型<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="derenotes.seek.SeekBar.setup">
-<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_frames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.seek.SeekBar.setup" title="Link to this definition">¶</a></dt>
-<dd><p>設定する。</p>
-<p>デレステ動画データの総フレーム数に基づいて、シーク用スライダーの最大値を設定する。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>total_frames</strong> (<em>int</em>) -- デレステ動画データの総フレーム数</p>
-</dd>
-<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="derenotes.seek.SeekBar.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elapsed_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.seek.SeekBar.update" title="Link to this definition">¶</a></dt>
-<dd><p>更新する。</p>
-<p>画像フレームの経過時間を経過時間ラベルに反映する。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>elapsed_time</strong> (<em>tuple</em>) -- 画像フレームの経過時間 [timestamp, time_base]</p>
-</dd>
-<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="derenotes.seek.SeekBar.shift">
-<span class="sig-name descname"><span class="pre">shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.seek.SeekBar.shift" title="Link to this definition">¶</a></dt>
-<dd><p>シーク用スライダーをシフトする。</p>
-<p>シーク移動量ボタンに <code class="docutils literal notranslate"><span class="pre">bind</span></code> させて、シーク用スライダー値を操作する。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>value</strong> (<em>int</em>) -- シーク移動量</p>
-</dd>
-<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="derenotes.seek.SeekPanel">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">SeekPanel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.seek.SeekPanel" title="Link to this definition">¶</a></dt>
-<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">BoxLayout</span></code></p>
-<p>シーク移動量を指定するウィジット。</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="derenotes.seek.SeekPanel.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#derenotes.seek.SeekPanel.reset" title="Link to this definition">¶</a></dt>
-<dd><p>シーク移動量ボタンを配置する。</p>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">steps</span></code> に基づいてグルーピングされたシーク移動量ボタンを配置する。</dt><dd><p>例： [&quot;-300&quot;, &quot;-60&quot;, &quot;-10&quot;, &quot;-5&quot;, &quot;-1&quot;, &quot;+1&quot;, &quot;+5&quot;, &quot;+10&quot;, &quot;+60&quot;, &quot;+300&quot;]</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>steps</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) -- シーク移動量を記載した文字列のリスト</p>
-</dd>
-<dt class="field-even">戻り値の型<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <section id="derenotes-seek-module">
+<h1>derenotes.seek module<a class="headerlink" href="#derenotes-seek-module" title="Link to this heading">¶</a></h1>
 </section>
 
 
@@ -154,26 +54,6 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="../index.html">目次</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">derenotes.seek module</a><ul>
-<li><a class="reference internal" href="#derenotes.seek.SeekBar"><code class="docutils literal notranslate"><span class="pre">SeekBar</span></code></a><ul>
-<li><a class="reference internal" href="#derenotes.seek.SeekBar.reset"><code class="docutils literal notranslate"><span class="pre">SeekBar.reset()</span></code></a></li>
-<li><a class="reference internal" href="#derenotes.seek.SeekBar.setup"><code class="docutils literal notranslate"><span class="pre">SeekBar.setup()</span></code></a></li>
-<li><a class="reference internal" href="#derenotes.seek.SeekBar.update"><code class="docutils literal notranslate"><span class="pre">SeekBar.update()</span></code></a></li>
-<li><a class="reference internal" href="#derenotes.seek.SeekBar.shift"><code class="docutils literal notranslate"><span class="pre">SeekBar.shift()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#derenotes.seek.SeekPanel"><code class="docutils literal notranslate"><span class="pre">SeekPanel</span></code></a><ul>
-<li><a class="reference internal" href="#derenotes.seek.SeekPanel.reset"><code class="docutils literal notranslate"><span class="pre">SeekPanel.reset()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </div>
   <div>
     <h4>前のトピックへ</h4>
     <p class="topless"><a href="derenotes.frame.html"
