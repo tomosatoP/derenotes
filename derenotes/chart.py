@@ -205,7 +205,7 @@ class ChartEdit(Factory.BoxLayout):
         number_lanes: int = LANE_NUMBER.get(self._chart.song.category, 5)
         for lane in range(number_lanes):
             btn = _AllocNoteToggleButton(
-                text=f"Lane{lane + 1}",
+                text=f"{(lane + 1):02d}",
                 state="normal",
                 on_release=lambda instance: self._change_note(instance, notetypes),
             )
@@ -247,7 +247,7 @@ class ChartEdit(Factory.BoxLayout):
 
         elif instance.state == "normal":  # note を取り出す。
             self._chart.remove(instance.note)
-            instance.text = f"Lane{instance.lane}"
+            instance.text = f"{instance.lane:02d}"
             instance.note = None
 
         else:
@@ -269,7 +269,7 @@ class ChartEdit(Factory.BoxLayout):
             if isinstance(lane, _AllocNoteToggleButton) and lane.state == "down":
                 lane.state = "normal"
                 lane.note = None
-                lane.text = f"Lane{lane.lane}"
+                lane.text = f"{lane.lane:02d}"
 
         # currentnotes, totalnotes を更新
         self.currentnotes.text = str(self._chart.current_notes(self._timestamp))
