@@ -72,9 +72,6 @@ cd derenotes
 pip install git+https://github.com/tomosatoP/derenotes.git
 ~~~
 
-> 予定：GitHub actions CI/CD workflow で自動ビルド。
-現状：`python -m build` & `pip install .` で行う。
-
 ### 実行
 
 ~~~shell

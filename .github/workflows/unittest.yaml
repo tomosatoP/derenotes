@@ -1,0 +1,48 @@
+name: "Unittest: Check Libs"
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - uses: actions/checkout@v6
+      with:
+        persist-credentials: false
+    
+    - name: Install Packages 
+      run: |
+        sudo apt-get update
+        sudo apt-get install ffmpeg python3-dev libavutil libavformat libavcodec libswscale
+
+    - name: Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: "3.12"
+
+    - name: Build
+      run: |
+        python -m pip install --upgrade pip
+        pip install -U build
+        python -m build
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v6
+      with:
+        persist-credentials: false
+    
+    - name: Unittest Libs
+      run: |
+        pip install .
+        python -m unittest discover tests
