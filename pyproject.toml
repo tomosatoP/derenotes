@@ -1,7 +1,7 @@
 # https://packaging.python.org/ja/latest/guides/writing-pyproject-toml/
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools>=80", "setuptools-scm[simple]", "build", "Cython"]
+requires = ["setuptools>=80", "setuptools-scm[simple]", "Cython"]
 
 [project]
 authors = [
