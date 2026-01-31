@@ -1,6 +1,8 @@
 name: "Sphinx: Render docs"
 
-on: push
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,12 +25,12 @@ jobs:
         sudo apt-get update
         sudo apt-get install ffmpeg python3-dev libavutil-dev libavformat-dev libavcodec-dev libswscale-dev
         python -m pip install --upgrade pip
-        pip install -U setuptools build sphinx "kivy[base]" cython
         python -m build
         pip install .
 
     - name: Sphinx-Build HTML
       run: |
+        pip install -U sphinx
         sphinx-build -M html docs/api/source docs/api/build
 
     - name: Upload artifacts
