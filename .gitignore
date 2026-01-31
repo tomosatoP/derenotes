@@ -1,3 +1,6 @@
+# video files
+*.mp4
+
 # kivy logs
 kivy_*.txt
 

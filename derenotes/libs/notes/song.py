@@ -102,11 +102,11 @@ class Note:
     :param Fraction time_base: 単位時間（秒）
     """
 
-    timestamp: int
-    lane: int
-    width: int = field(compare=False)
-    type: NoteType = field(compare=False)
-    time_base: Fraction = field(compare=False)
+    timestamp: int = 0
+    lane: int = 1
+    width: int = field(default=1, compare=False)
+    type: NoteType = field(default=NoteType.TAP, compare=False)
+    time_base: Fraction = field(default=Fraction(1, 1), compare=False)
 
 
 NoteLink = deque
