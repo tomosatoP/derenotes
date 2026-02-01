@@ -12,9 +12,6 @@ from kivy.graphics.texture import Texture  # 仮引数の型アノテーショ�
 
 import derenotes.libs.image.video as video
 
-VIDEOFILE_TYPE = "mp4"
-VIDEO_ACCELERATOR = "cuda"
-
 
 class FrameView(Factory.Image):
     """
@@ -51,7 +48,7 @@ class FrameView(Factory.Image):
 
         Logger.debug(f"{self.__class__.__name__}: reset.")
 
-    def setup(self, video_filename: str) -> None:
+    def setup(self, video_filename: str, video_filetype: str = "mp4", video_accelerator: str = None) -> None:
         """
         設定を行う。
 
@@ -62,7 +59,7 @@ class FrameView(Factory.Image):
         :param str video_filename: デレステ動画ファイルのパス名。
         """
 
-        self._stream = video.Stream(video_filename, VIDEOFILE_TYPE, VIDEO_ACCELERATOR)
+        self._stream = video.Stream(video_filename, video_filetype, video_accelerator)
 
         if isinstance(self._stream, video.Stream):
             self.texture = Factory.Texture.create(

@@ -40,6 +40,9 @@ dev = [
   "coverage",
 ]
 
+[project.scripts]
+init = "init:main"
+
 [tool.setuptools.packages.find]
 include = ["derenotes*"]
 

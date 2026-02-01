@@ -3,6 +3,7 @@
 """
 
 from typing import Any
+import tomllib
 
 from kivy.app import App
 from kivy.logger import Logger
@@ -13,9 +14,10 @@ from derenotes.frame import FrameView
 from derenotes.seek import SeekBar, SeekPanel
 from derenotes.chart import ChartEdit, NoteTypesGridLayout, ChartView
 
-
-# シークパネルにボタンを追加する際のシークステップはこんなもんで
+# 設定ファイルが無かった時の設定
 SEEK_STEPS: list[str] = ["-300", "-60", "-10", "-5", "-1", "+1", "+5", "+10", "+60", "+300"]
+VIDEO_FILETYPE: str = "mp4"
+VIDEO_ACCELERATOR: str | None = "cuda"
 
 
 class MainBoxLayout(Factory.BoxLayout):
@@ -35,6 +37,7 @@ class MainBoxLayout(Factory.BoxLayout):
         super().__init__(**kwargs)
 
         self.check_all_views()
+        self.load_config()
         self.reset()
 
         # シーク値の変更時コールバック関数を登録
@@ -73,6 +76,22 @@ class MainBoxLayout(Factory.BoxLayout):
         if not isinstance(self.chartview, ChartView):
             raise Exception("ChartView")
 
+    def load_config(self) -> None:
+        """
+        load_config の Docstring
+        """
+
+        with open("config/config.toml", "rb") as f:
+            config = tomllib.load(f)
+
+            global SEEK_STEPS
+            global VIDEO_FILETYPE
+            global VIDEO_ACCELERATOR
+
+            SEEK_STEPS = config["steps"]
+            VIDEO_FILETYPE = config["filetype"]
+            VIDEO_ACCELERATOR = None if config["accelerator"] == "software" else config["accelerator"]
+
     def changed_file(self) -> None:
         """
         デレステ譜面データが更新（新規作成、開く、閉じる）されたら各ウィジットを再設定する。
@@ -106,7 +125,7 @@ class MainBoxLayout(Factory.BoxLayout):
         self.fileview.reset()
         self.preview.reset()
         self.seekbar.reset()
-        self.seekpanel.reset(steps=SEEK_STEPS)  # ボタンを配置済みの場合は、何もしない。
+        self.seekpanel.reset(SEEK_STEPS)  # ボタンを配置済みの場合は、何もしない。
         self.chartedit.reset()
         self.chartview.reset()
 
@@ -120,10 +139,10 @@ class MainBoxLayout(Factory.BoxLayout):
         self.check_all_views()
 
         self.fileview.setup()
-        self.preview.setup(video_filename=self.fileview.chart.videofile)
-        self.seekbar.setup(total_frames=self.preview.total_frames)
-        self.chartedit.setup(chart=self.fileview.chart, notetypes=self.notetypes)
-        self.chartview.setup(chart=self.fileview.chart)
+        self.preview.setup(self.fileview.chart.videofile, VIDEO_FILETYPE, VIDEO_ACCELERATOR)
+        self.seekbar.setup(self.preview.total_frames)
+        self.chartedit.setup(self.fileview.chart, self.notetypes)
+        self.chartview.setup(self.fileview.chart)
 
         Logger.debug(f"{self.__class__.__name__}: setup.")
 
@@ -140,9 +159,9 @@ class MainBoxLayout(Factory.BoxLayout):
             self.fileview.chart.last_index = self.preview.frame_index
 
             self.preview.update()
-            self.seekbar.update(elapsed_time=self.preview.elapsed_time)
-            self.chartedit.update(frame_index=self.preview.frame_index, elapsed_time=self.preview.elapsed_time)
-            self.chartview.update(frame_index=self.preview.frame_index, elapsed_time=self.preview.elapsed_time)
+            self.seekbar.update(self.preview.elapsed_time)
+            self.chartedit.update(self.preview.frame_index, self.preview.elapsed_time)
+            self.chartview.update(self.preview.frame_index, self.preview.elapsed_time)
 
         Logger.debug(f"{self.__class__.__name__}: update.")
 
