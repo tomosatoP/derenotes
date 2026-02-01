@@ -70,6 +70,7 @@ cd derenotes
 
 . venv/bin/activate
 pip install git+https://github.com/tomosatoP/derenotes.git
+init
 ~~~
 
 ### 実行

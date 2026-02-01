@@ -78,7 +78,7 @@ class MainBoxLayout(Factory.BoxLayout):
 
     def load_config(self) -> None:
         """
-        load_config の Docstring
+        設定ファイルを読み込む。
         """
 
         with open("config/config.toml", "rb") as f:
