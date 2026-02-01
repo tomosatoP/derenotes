@@ -13,4 +13,5 @@ Submodules
    derenotes.derenotes
    derenotes.file
    derenotes.frame
+   derenotes.init
    derenotes.seek

@@ -1,0 +1,7 @@
+derenotes.init module
+=====================
+
+.. automodule:: derenotes.init
+   :members:
+   :show-inheritance:
+   :undoc-members:
