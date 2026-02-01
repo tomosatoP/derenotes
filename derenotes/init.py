@@ -11,8 +11,7 @@ INPUT_FOLDER: str = "input"
 # デレステ譜面ファイルの置き場
 OUTPUT_FOLDER: str = "output"
 
-CONFIG_CONTENT: str = """
-# シーク移動量の文字列の配列
+CONFIG_CONTENT: str = '''# シーク移動量の文字列の配列
 # 例：steps = ["-300", "-60", "-10", "-5", "-1", "+1", "+5", "+10", "+60", "+300"]
 steps = ["-300", "-60", "-10", "-5", "-1", "+1", "+5", "+10", "+60", "+300"]
 # デレステ動画ファイルのファイルタイプ
@@ -25,8 +24,7 @@ filetype = "mp4"
 # - "vdpau"は、NVIDIA GPUを使ってデコード。
 # - "vulkan"は、各種GPUを使ってデコード。
 # 例：accelerator = "cuda"
-accelerator = "cuda"
-"""
+accelerator = "cuda"'''
 
 
 def setup_folders() -> None:
@@ -55,3 +53,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     print(__file__)
+    main()

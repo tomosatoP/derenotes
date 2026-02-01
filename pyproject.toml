@@ -41,7 +41,7 @@ dev = [
 ]
 
 [project.scripts]
-init = "init:main"
+init = "derenotes.init:main"
 
 [tool.setuptools.packages.find]
 include = ["derenotes*"]
