@@ -15,32 +15,48 @@ jobs:
       with:
         persist-credentials: false
 
+    - name: Install Packages
+      run: |
+        sudo apt-get update
+        sudo apt-get install ffmpeg python3-dev libavutil-dev libavformat-dev libavcodec-dev libswscale-dev
+
     - name: Python
       uses: actions/setup-python@v6
       with:
         python-version: "3.12"
   
-    - name: Requirements
+    - name: Python Requirements
       run: |
-        sudo apt-get update
-        sudo apt-get install ffmpeg python3-dev libavutil-dev libavformat-dev libavcodec-dev libswscale-dev
         python -m pip install --upgrade pip
         pip install -U build
-        python -m build
-        pip install .
 
-    - name: Sphinx-Build HTML
+    - name: Python Build app
+      run: |
+        python -m build
+
+    - name: Python Unittest Libs
+      run: |
+        pip install .
+        python -m unittest discover tests
+
+    - name: Upload artifacts app
+      uses: actions/upload-artifact@v6
+      with:
+        name: app
+        path: dist
+
+    - name: Sphinx Build html-docs
       run: |
         pip install -U sphinx
         sphinx-build -M html docs/api/source docs/api/build
 
-    - name: Upload artifacts
+    - name: Upload artifacts html-docs
       uses: actions/upload-artifact@v6
       with:
         name: html-docs
         path: docs/api/build/html/
 
-    - name: Deploy
+    - name: Deploy html-docs
       uses: peaceiris/actions-gh-pages@v4
       if: github.ref == 'refs/heads/main'
       with:
